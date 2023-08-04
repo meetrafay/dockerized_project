@@ -1,0 +1,97 @@
+$ sudo apt-get update 
+
+$ sudo apt install docker.io # install docker
+
+$ sudo snap install docker # install all dependencies
+
+$ docker --version #Before testing Docker, check the version installed using the following command
+
+$ docker info # view all information of docker
+
+$ docker version # view different information
+
+$ docker image pull <repository>:<tag> # pull image from official repo (tag would be version of image ,default latest)
+
+$ docker image pull <username>/<repository>:<tag> # pull image from unofficial repo
+
+# before pushing image you should change the name of image to <repo name>/<image name>:<tag>
+
+$ docker tag <image name>:<tag> <repo name>/<image name>:<tag> 
+
+$ docker image push <repo name>/<image name>:<tag> # push image to docker hub
+
+$ docker  images ls # list of images downloaded
+
+$ docker image rm <name>:<tag> # remove image
+
+$ sudo docker run -it aamirpinger/helloworld sh # download and run container
+
+$ docker container ls or docker ps # list of running container
+
+$ docker container ls -a # list of all container running or stop mode
+
+$ docker exec -it <name of container> sh # back to running container file system 
+
+$ docker container stop <id> # stop running container
+
+$ docker container start <name> # start container
+
+$ docker container  rm <name> # remove container
+
+$ sudo docker run -d aamirpinger/helloworld # download and run container in backgroud or non interactive mode
+
+$ sudo docker run -d -p 5000:80 aamirpinger/helloworld # run and assign port to a container
+
+$ sudo systemctl restart docker.socket docker.service # When docker is not getting closed
+
+$ sudo docker run -d --name testing_image -p 5020:80 aamirpinger/flag # assign custom name to docker 
+
+$ docker history <image name> # view all history 
+
+$ docker inspect <image name> # view history in more detail 
+
+$ docker rm -f $(docker ps -a -q) # delete all container 
+
+$ docker rmi -f $(docker images -a -q) # delete all images
+
+$ docker system prune -a # This will remove all unused containers, networks, volumes, and images (both dangling and unreferenced).
+
+
+Docker YAML CMD:
+
+$ docker-compose build # Build the Images
+
+$ docker-compose up # To run the containers defined in the file
+
+$ docker-compose up -d # start container in detached mode
+
+$ docker-compose stop # stop container
+
+$ docker-compose start # start the previously stopped containers
+
+$ docker-compose down # Stop and Remove Containers
+
+$ docker-compose logs # view the logs of the containers
+ 
+$ docker-compose ps # view the status of the containers 
+
+$ docker-compose restart # restart container
+
+docker-compose down
+docker-compose rm
+docker system prune -a --volumes
+
+
+
+
+# setup project using docker
+
+>clone Priject from github:
+ $ docker build -t <image name> . # create image of project
+ $ docker container run --name=<container name> -d -p 5010:80 <image name> # run container of image
+ 
+ https://dockerize.io/guides/python-django-guide
+ 
+ 
+ 
+ 
